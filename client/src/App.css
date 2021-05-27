@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+#true{
+  width: 10px; 
+height: 10px; 
+background-color: black; 
+}
+
+#false{
+  width: 10px; 
+height: 10px; 
+background-color: lightgreen; 
+}
+
+.container{
+  margin-left: 25%;
+  margin-right: 25%;
+}
