@@ -33,11 +33,17 @@ const CheckBoxAnswers = ({answer, inquiry}) =>{
 
     return (
         <div>
+            {inquiry.checkBoxQuestions.firstCheckBox.length>0||
+            inquiry.checkBoxQuestions.secondCheckBox.length>0||
+            inquiry.checkBoxQuestions.thirdCheckBox.length>0||
+            inquiry.checkBoxQuestions.fourthCheckBox.length>0||
+            inquiry.checkBoxQuestions.fifthCheckBox.length>0?
             <table>
                 <tbody>
                     {output}
                 </tbody>
             </table>
+           :''}
         </div>
     )
 

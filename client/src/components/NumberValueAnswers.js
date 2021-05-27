@@ -17,11 +17,17 @@ const NumberValueAnswers = ({answer, inquiry}) =>{
 
     return (
         <div>
-          <table>  
-              <tbody>
-                {output}
-            </tbody>
-         </table>
+            {inquiry.numberValueQuestions.firstNumberValue.length>0||
+            inquiry.numberValueQuestions.secondNumberValue.length>0||
+            inquiry.numberValueQuestions.thirdNumberValue.length>0||
+            inquiry.numberValueQuestions.fourthNumberValue.length>0||
+            inquiry.numberValueQuestions.fifthNumberValue.length>0?
+                <table>  
+                    <tbody>
+                        {output}
+                    </tbody>
+                </table>
+            :''}
         </div>
     )
 
