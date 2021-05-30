@@ -61,8 +61,28 @@ app.get('/api/inquiry', (req, res) => {
 
 app.post('/api/inquiries', (req, res) => {
   const body = req.body
-  console.log(body)
-  
+  console.log("body on ",body)
+  console.log("pituus on ",Object.keys(body.checkBoxQuestions).length)
+  let checkBoxes=body.checkBoxQuestions
+  console.log("checkboxes: ", checkBoxes)
+
+  const inquiry = new inquiryModel({
+    inquiryIdentifier: body.inquiryIdentifier,
+    customerName: body.customerName,
+    projectName: body.projectName,
+    dataType: body.dataType,
+    checkBoxQuestions: checkBoxes,
+    numberValueQuestions:{
+      firstNumberValue: body.numberValueQuestions.firstNumberValue,
+      secondNumberValue: body.numberValueQuestions.secondNumberValue,
+      thirdNumberValue: body.numberValueQuestions.thirdNumberValue,
+      fourthNumberValue: body.numberValueQuestions.fourthNumberValue,
+      fifthNumberValue: body.numberValueQuestions.fifthNumberValue
+      },
+    answerWithTextQuestion: body.answerWithTextQuestion
+    
+  })
+  /*
   const inquiry = new inquiryModel({
     inquiryIdentifier: body.inquiryIdentifier,
     customerName: body.customerName,
@@ -84,14 +104,16 @@ app.post('/api/inquiries', (req, res) => {
       },
     answerWithTextQuestion: body.answerWithTextQuestion
   })
-
+  */
+  console.log("inquiry on ", inquiry)
+  /*
   inquiry.save(function(err){
     if(err){
       console.log("Failed to save item. Reason:",err);
 			return res.status(500).json({message:"Internal server error"})
     }
     return res.status(201).json({message:"success!"})
-  })
+  })*/
 })
 
 // Checking if in production or dev environment

@@ -1,5 +1,48 @@
 const mongoose = require("mongoose");
 
+//let Schema = mongoose.Schema({
+let inquirySchema = new mongoose.Schema({
+	inquiryIdentifier:{
+        type:String,
+        required: true,
+        minLength: 5,
+        unique: true},
+    customerName: {
+        type:String,
+        required: true,
+        minLength: 5
+        },
+    projectName: {
+        type:String,
+        required: true,
+        minLength: 5
+        },
+    dataType:{
+        type:String,
+        required: true,
+        },
+    checkBoxQuestions:[mongoose.Schema.Types.Mixed],
+    numberValueQuestions:{
+        firstNumberValue:{
+            type:String
+        },
+        secondNumberValue:{
+            type:String
+        },
+        thirdNumberValue:{
+            type:String
+        },
+        fourthNumberValue:{
+            type:String
+        },
+        fifthNumberValue:{
+            type:String
+        }
+    },
+    answerWithTextQuestion:{
+        type:String}
+}, {strict: false})
+/*
 let Schema = mongoose.Schema({
 	inquiryIdentifier:{
         type:String,
@@ -57,5 +100,6 @@ let Schema = mongoose.Schema({
     answerWithTextQuestion:{
         type:String}
 })
-
-module.exports = mongoose.model("Inquiry",Schema);
+*/
+//module.exports = mongoose.model("Inquiry",Schema);
+module.exports=mongoose.model('inquiry', inquirySchema)

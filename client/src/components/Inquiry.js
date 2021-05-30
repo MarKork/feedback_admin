@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import CheckBoxQuestions from './CheckBoxQuestions'
 
 const Inquiry = () =>{
 
     const [isReady, setIsReady] = useState(false)
     const [sendToCustomer, setSendToCustomer] = useState('')
     const [amountOfQuestions, setAmountOfQuestions] = useState(0)
+    const [inquiryContent, setInquiryContent] = useState({
+        inquiryIdentifier: "",
+        customerName: "",
+        projectName: "",
+        dataType: "questions",
+        checkBoxQuestions:[{qkey:""}],
+        numberValueQuestions:{
+            firstNumberValue: "",
+            secondNumberValue: "",
+            thirdNumberValue: "",
+            fourthNumberValue: "",
+            fifthNumberValue: ""
+            },
+        answerWithTextQuestion: ""
+        })
+    /*
     const [inquiryContent, setInquiryContent] = useState({
         inquiryIdentifier: "",
         customerName: "",
@@ -27,6 +44,7 @@ const Inquiry = () =>{
             },
         answerWithTextQuestion: ""
         })
+        */
 
     useEffect(() => {
         setButton();
@@ -160,7 +178,8 @@ const Inquiry = () =>{
                 </div>
                 <br/>
                 <label>Rasti ruutuun -kysymykset:</label>
-                {checkBoxQuestionsOutput}
+                <CheckBoxQuestions inquiryContent={inquiryContent} setInquiryContent={setInquiryContent}/>
+
                 <br/>
                 <label>Numerolla arvioitavat kysymykset:</label>
                 {numberValueQuestionsOutput}
